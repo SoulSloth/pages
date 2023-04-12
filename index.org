@@ -1,4 +1,5 @@
 #+title: Creating Your Own Static Site With Github Pages
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="styles.css" />
 It's relatively simple to get setup with your own website with Github Pages.
 
 ** Prerequisites
