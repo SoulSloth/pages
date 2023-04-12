@@ -1,4 +1,13 @@
 body {
     color: white;
-    background-color: black;
+    background: rgb(2,0,36);
+    background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(97,97,97,1) 100%, rgba(0,0,0,1) 100%);
+}
+
+pre.src {
+    background: black;
+}
+
+h1 {
+  text-shadow: 1px 1px grey;
 }
