@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2023-04-12 Wed 15:12 -->
+<!-- 2023-04-12 Wed 15:28 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>github-pages-tutorial</title>
+<title>Creating Your Own Static Site With Github Pages</title>
 <meta name="generator" content="Org Mode" />
 <style>
   #content { max-width: 60em; margin: auto; }
@@ -195,13 +195,17 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">github-pages-tutorial</h1>
-<div id="outline-container-org550de2f" class="outline-2">
-<h2 id="org550de2f"><span class="section-number-2">1.</span> Prerequisites</h2>
+<h1 class="title">Creating Your Own Static Site With Github Pages</h1>
+<p>
+It's relatively simple to get setup with your own website with Github Pages.
+</p>
+
+<div id="outline-container-org9a0c017" class="outline-2">
+<h2 id="org9a0c017"><span class="section-number-2">1.</span> Prerequisites</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
-<li>Install git</li>
-<li>Create a github account</li>
+<li>Install git(<a href="https://git-scm.com/downloads">https://git-scm.com/downloads</a>)</li>
+<li>Create a github account(<a href="https://github.com/">https://github.com/</a>)</li>
 <li>Optional:
 <ul class="org-ul">
 <li>Install gitKraken(<a href="https://www.gitkraken.com/">https://www.gitkraken.com/</a>) as a nice to have interface over git</li>
@@ -211,23 +215,23 @@
 </div>
 </div>
 
-<div id="outline-container-orgeb5f1ad" class="outline-2">
-<h2 id="orgeb5f1ad"><span class="section-number-2">2.</span> Setting Up Git</h2>
+<div id="outline-container-orgfe23ed6" class="outline-2">
+<h2 id="orgfe23ed6"><span class="section-number-2">2.</span> Setting Up Git</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 Git allows you to track changes to your files and push those changes to remote hosts, github in this case.
 </p>
 </div>
 
-<div id="outline-container-orgd2c63b6" class="outline-3">
-<h3 id="orgd2c63b6"><span class="section-number-3">2.1.</span> Generating your ssh key</h3>
+<div id="outline-container-orgeb881e6" class="outline-3">
+<h3 id="orgeb881e6"><span class="section-number-3">2.1.</span> Generating your ssh key</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 In order for you to push, you'll first need to create an SSH key and attach it to your github account<sup><a id="fnr.1" class="footref" href="#fn.1" role="doc-backlink">1</a></sup>
 </p>
 
 <p>
-In a command prompt, run the following:
+In a terminal, run the following:
 </p>
 <div class="org-src-container">
 <pre class="src src-shell">ssh-keygen -t ed25519
@@ -235,18 +239,20 @@ In a command prompt, run the following:
 </div>
 
 <p>
-Just hit enter and accept the defaults for all the prompts.
+Just hit enter and accept the defaults for all the prompts. This will generate a private and public key for you to authorize actions on your github repositories.
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgf56888b" class="outline-3">
-<h3 id="orgf56888b"><span class="section-number-3">2.2.</span> Adding your ssh key to your github account</h3>
+<div id="outline-container-org3ccc791" class="outline-3">
+<h3 id="org3ccc791"><span class="section-number-3">2.2.</span> Adding your ssh key to your github account</h3>
 <div class="outline-text-3" id="text-2-2">
 <ul class="org-ul">
 <li>Go to your github profile settings</li>
-<li>select <i>SSH and GPG keys</i> on the left-hand side bar</li>
-<li>Select <i>New SSH key</i></li>
+<li>select <i>SSH and GPG keys</i> on the left-hand side bar
+<img src="./pics/ssh-settings.png" alt="ssh-settings.png" /></li>
+<li>Select <i>New SSH key</i>
+<img src="./pics/new-ssh-key.png" alt="new-ssh-key.png" /></li>
 <li>Give your key a title and copy the contents of the <code>.pub</code> file that was generated in the last step with <code>ssh-keygen</code>.
 <ul class="org-ul">
 <li><b>DO NOT</b> copy the contents of the file without an exception. That is your private key secret and you should <i>NEVER</i> share it with anyone or they'll be able to push to your github account!</li>
@@ -259,15 +265,15 @@ You should now be good to go!
 </div>
 </div>
 
-<div id="outline-container-orgd768c5d" class="outline-3">
-<h3 id="orgd768c5d"><span class="section-number-3">2.3.</span> Create your repo and verify you have access</h3>
+<div id="outline-container-org63ca006" class="outline-3">
+<h3 id="org63ca006"><span class="section-number-3">2.3.</span> Create your repo and verify you have access</h3>
 <div class="outline-text-3" id="text-2-3">
 <p>
 Create a repository in github, following most of the defaults, but uncheck <i>initialize with readme</i>.
 </p>
 
 <p>
-From shell, run the following:
+From shell, in a new directory, run the following:
 </p>
 <div class="org-src-container">
 <pre class="src src-shell">touch README.md
@@ -286,15 +292,26 @@ Verify that <code>README.md</code> is present in your repo.
 </div>
 </div>
 
-<div id="outline-container-org83b92d7" class="outline-2">
-<h2 id="org83b92d7"><span class="section-number-2">3.</span> Setting Up The Site</h2>
+<div id="outline-container-orgaa29780" class="outline-2">
+<h2 id="orgaa29780"><span class="section-number-2">3.</span> Setting Up The Site</h2>
 <div class="outline-text-2" id="text-3">
+<p>
+Run the following commands in your project folder:
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">echo "Hello!" &gt;&gt; index.html
+git add index.html
+git commit -m "created a home page"
+git push origin master
+</pre>
+</div>
+
 <p>
 On your website's repository:
 </p>
 <ul class="org-ul">
 <li>Go to settings</li>
-<li>From the sidebar select <i>Pages</i></li>
+<li>From the side-bar select <i>Pages</i></li>
 <li>Scroll to <i>branch</i> and select <code>master</code>.</li>
 <li>Click save</li>
 <li>Navigate to <code>{YOUR GITHUB USERNAME}.github.io/{YOUR REPO NAME}</code> to see your site.</li>
@@ -313,7 +330,7 @@ On your website's repository:
 </div>
 </div></div>
 <div id="postamble" class="status">
-<p class="date">Created: 2023-04-12 Wed 15:12</p>
+<p class="date">Created: 2023-04-12 Wed 15:28</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

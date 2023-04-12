@@ -1,7 +1,9 @@
-#+title: github-pages-tutorial
+#+title: Creating Your Own Static Site With Github Pages
+It's relatively simple to get setup with your own website with Github Pages.
+
 ** Prerequisites
-- Install git
-- Create a github account
+- Install git(https://git-scm.com/downloads)
+- Create a github account(https://github.com/)
 - Optional:
   - Install gitKraken(https://www.gitkraken.com/) as a nice to have interface over git
   - Install VSCode(https://code.visualstudio.com/) for editing HTML, CSS, and site templates
@@ -12,17 +14,19 @@ Git allows you to track changes to your files and push those changes to remote h
 *** Generating your ssh key
 In order for you to push, you'll first need to create an SSH key and attach it to your github account[fn:1]
 
-In a command prompt, run the following:
+In a terminal, run the following:
 #+begin_src shell
 ssh-keygen -t ed25519
 #+end_src
 
-Just hit enter and accept the defaults for all the prompts.
+Just hit enter and accept the defaults for all the prompts. This will generate a private and public key for you to authorize actions on your github repositories.
 
 *** Adding your ssh key to your github account
 - Go to your github profile settings
 - select /SSH and GPG keys/ on the left-hand side bar
+ [[./pics/ssh-settings.png]]
 - Select /New SSH key/
+  [[./pics/new-ssh-key.png]]
 - Give your key a title and copy the contents of the =.pub= file that was generated in the last step with =ssh-keygen=.
   - *DO NOT* copy the contents of the file without an exception. That is your private key secret and you should /NEVER/ share it with anyone or they'll be able to push to your github account!
 
@@ -31,7 +35,7 @@ You should now be good to go!
 *** Create your repo and verify you have access
 Create a repository in github, following most of the defaults, but uncheck /initialize with readme/.
 
-From shell, run the following:
+From shell, in a new directory, run the following:
 #+begin_src shell :eval never
 touch README.md
 git add README.md 
@@ -44,9 +48,17 @@ git push -u origin master
 Verify that =README.md= is present in your repo.
 
 ** Setting Up The Site
+Run the following commands in your project folder:
+#+begin_src shell
+echo "Hello!" >> index.html
+git add index.html
+git commit -m "created a home page"
+git push origin master
+#+end_src
+
 On your website's repository:
 - Go to settings
-- From the sidebar select /Pages/
+- From the side-bar select /Pages/
 - Scroll to /branch/ and select =master=.
 - Click save
 - Navigate to ={YOUR GITHUB USERNAME}.github.io/{YOUR REPO NAME}= to see your site.
