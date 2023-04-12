@@ -63,6 +63,12 @@ On your website's repository:
 - Click save
 - Navigate to ={YOUR GITHUB USERNAME}.github.io/{YOUR REPO NAME}= to see your site.
 
+*** Changes To My Site Aren't Showing Up!
+On your repo page, click on the status icon that appears in the most recent commit bar:
+[[./pics/status-icon.png]]
+
+It might be that your site is still being built and deployed or there's an issue with your site that needs to be fixed.
+
 ** Footnotes
 
 [fn:1]https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key
