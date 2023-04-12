@@ -1,7 +1,7 @@
 #+title: Creating Your Own Static Site With Github Pages
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="styles.css" />
 #+HTML_HEAD: <link href="/favicon.png" rel="icon" sizes="96x96" type="image/png">
-It's relatively simple to get setup with your own website with Github Pages.
+It's relatively simple to get setup with your own web site with Github Pages.
 
 ** Prerequisites
 - Install git(https://git-scm.com/downloads)
