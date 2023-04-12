@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2023-04-12 Wed 16:03 -->
+<!-- 2023-04-12 Wed 16:26 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Creating Your Own Static Site With Github Pages</title>
@@ -202,12 +202,11 @@
 <div id="content" class="content">
 <h1 class="title">Creating Your Own Static Site With Github Pages</h1>
 <p>
-&lt;script&gt;hljs.highlightAll();&lt;/script&gt;
 It's relatively simple to get setup with your own web site with Github Pages.
 </p>
 
-<div id="outline-container-org8f35448" class="outline-2">
-<h2 id="org8f35448"><span class="section-number-2">1.</span> Prerequisites</h2>
+<div id="outline-container-orgf875245" class="outline-2">
+<h2 id="orgf875245"><span class="section-number-2">1.</span> Prerequisites</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
 <li>Install git(<a href="https://git-scm.com/downloads">https://git-scm.com/downloads</a>)</li>
@@ -221,16 +220,16 @@ It's relatively simple to get setup with your own web site with Github Pages.
 </div>
 </div>
 
-<div id="outline-container-org52d9727" class="outline-2">
-<h2 id="org52d9727"><span class="section-number-2">2.</span> Setting Up Git</h2>
+<div id="outline-container-orgb871a37" class="outline-2">
+<h2 id="orgb871a37"><span class="section-number-2">2.</span> Setting Up Git</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 Git allows you to track changes to your files and push those changes to remote hosts, github in this case.
 </p>
 </div>
 
-<div id="outline-container-orgfeef591" class="outline-3">
-<h3 id="orgfeef591"><span class="section-number-3">2.1.</span> Generating your ssh key</h3>
+<div id="outline-container-orgc64faf0" class="outline-3">
+<h3 id="orgc64faf0"><span class="section-number-3">2.1.</span> Generating your ssh key</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 In order for you to push, you'll first need to create an SSH key and attach it to your github account<sup><a id="fnr.1" class="footref" href="#fn.1" role="doc-backlink">1</a></sup>
@@ -240,8 +239,8 @@ In order for you to push, you'll first need to create an SSH key and attach it t
 In a terminal, run the following:
 </p>
 <div class="org-src-container">
-<pre class="src src-shell">ssh-keygen -t ed25519
-</pre>
+<pre class="src src-shell"><code>ssh-keygen -t ed25519
+</code></pre>
 </div>
 
 <p>
@@ -250,8 +249,8 @@ Just hit enter and accept the defaults for all the prompts. This will generate a
 </div>
 </div>
 
-<div id="outline-container-org22f4dc1" class="outline-3">
-<h3 id="org22f4dc1"><span class="section-number-3">2.2.</span> Adding your ssh key to your github account</h3>
+<div id="outline-container-org845adad" class="outline-3">
+<h3 id="org845adad"><span class="section-number-3">2.2.</span> Adding your ssh key to your github account</h3>
 <div class="outline-text-3" id="text-2-2">
 <ul class="org-ul">
 <li>Go to your github profile settings</li>
@@ -271,8 +270,8 @@ You should now be good to go!
 </div>
 </div>
 
-<div id="outline-container-orga28c701" class="outline-3">
-<h3 id="orga28c701"><span class="section-number-3">2.3.</span> Create your repo and verify you have access</h3>
+<div id="outline-container-orgf316504" class="outline-3">
+<h3 id="orgf316504"><span class="section-number-3">2.3.</span> Create your repo and verify you have access</h3>
 <div class="outline-text-3" id="text-2-3">
 <p>
 Create a repository in github, following most of the defaults, but uncheck <i>initialize with readme</i>.
@@ -282,13 +281,13 @@ Create a repository in github, following most of the defaults, but uncheck <i>in
 From shell, in a new directory, run the following:
 </p>
 <div class="org-src-container">
-<pre class="src src-shell">touch README.md
+<pre class="src src-shell"><code>touch README.md
 git add README.md 
 git commit -m "init"
 git branch -M master
 git remote add origin git@github.com:{YOUR REPO NAME HERE}.git
 git push -u origin master
-</pre>
+</code></pre>
 </div>
 
 <p>
@@ -298,18 +297,18 @@ Verify that <code>README.md</code> is present in your repo.
 </div>
 </div>
 
-<div id="outline-container-orgfac2690" class="outline-2">
-<h2 id="orgfac2690"><span class="section-number-2">3.</span> Setting Up The Site</h2>
+<div id="outline-container-org1f40eeb" class="outline-2">
+<h2 id="org1f40eeb"><span class="section-number-2">3.</span> Setting Up The Site</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 Run the following commands in your project folder:
 </p>
 <div class="org-src-container">
-<pre class="src src-shell">echo "Hello!" &gt;&gt; index.html
+<pre class="src src-shell"><code>echo "Hello!" &gt;&gt; index.html
 git add index.html
 git commit -m "created a home page"
 git push origin master
-</pre>
+</code></pre>
 </div>
 
 <p>
@@ -324,8 +323,8 @@ On your website's repository:
 </ul>
 </div>
 
-<div id="outline-container-org6ac4a56" class="outline-3">
-<h3 id="org6ac4a56"><span class="section-number-3">3.1.</span> Changes To My Site Aren't Showing Up!</h3>
+<div id="outline-container-org794b611" class="outline-3">
+<h3 id="org794b611"><span class="section-number-3">3.1.</span> Changes To My Site Aren't Showing Up!</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 On your repo page, click on the status icon that appears in the most recent commit bar:
@@ -350,7 +349,7 @@ It might be that your site is still being built and deployed or there's an issue
 </div>
 </div></div>
 <div id="postamble" class="status">
-<p class="date">Created: 2023-04-12 Wed 16:03</p>
+<p class="date">Created: 2023-04-12 Wed 16:26</p>
 </div>
 </body>
 </html>
